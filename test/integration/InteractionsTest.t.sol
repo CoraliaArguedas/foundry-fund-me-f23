@@ -17,17 +17,13 @@ contract InteractionsTest is Test {
         vm.deal(USER, STARTING_BALANCE);
     }
     function testUserCanFundInteractions() public {
-        FundFundMe fundFundMe = new FundFundMe();
-       //  vm.prank(USER);
-        // vm.deal(USER, 1e18);
-        fundFundMe.fundFundMe(address(fundFundMe));
-         vm.prank(USER);
-        fundMe.fund{value: SEND_VALUE}();
+      FundFundMe fundFundMe = new FundFundMe();
+        fundFundMe.fundFundMe(address(fundMe));
 
         WithdrawFundMe withdrawFundMe = new WithdrawFundMe();
-        withdrawFundMe.withdrawFundMe(address(fundMe));
-
-       // assert(address(fundMe).balance == 0);
+       withdrawFundMe.withdrawFundMe(address(fundMe));
+    
+       assert(address(fundMe).balance == 0);
 
     }
 }
